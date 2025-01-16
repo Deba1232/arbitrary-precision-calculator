@@ -4,7 +4,10 @@ int main(int argc, char* argv[])
 {
 	Dlist *head1=NULL, *tail1=NULL;
     Dlist *head2=NULL, *tail2=NULL; 
-    Dlist *headR=NULL,*tailR=NULL;
+    Dlist *headR=NULL, *tailR=NULL;
+
+	/* Flag to indicate if the result is negative or zero*/
+	int flag = 0;
 
 	if(argc == 4){
 
@@ -14,12 +17,12 @@ int main(int argc, char* argv[])
 			if(operator=='+' || operator=='-' || operator=='x' || operator=='/'){
 				switch (operator){
 					case '+':
-                		digit_to_list(&head1,&tail1,&head2,&tail2,argv);
+                		operand_to_list(&head1,&tail1,&head2,&tail2,argv,flag);
 						/* call the function to perform the addition operation */
                 		addition(&head1,&tail1,&head2,&tail2,&headR,&tailR);
 						break;
 					case '-':
-						digit_to_list(&head1,&tail1,&head2,&tail2,argv);	
+						operand_to_list(&head1,&tail1,&head2,&tail2,argv,flag);	
 						/* call the function to perform the subtraction operation */
 						subtraction(&head1,&tail1,&head2,&tail2,&headR,&tailR);
 						break;
