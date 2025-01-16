@@ -1,6 +1,6 @@
 #include "apc.h"
 
-void operand_to_list(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, char *argv[], int flag){
+int operand_to_list(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, char *argv[], int flag){
 
     if(**(argv + 2) == '+'){
         while(*argv[1]){
@@ -324,6 +324,6 @@ void operand_to_list(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2,
                 }
             }
         }
-        printf("%d",flag);
+        return flag;
     }
 }

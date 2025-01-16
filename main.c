@@ -22,9 +22,9 @@ int main(int argc, char* argv[])
                 		addition(&head1,&tail1,&head2,&tail2,&headR,&tailR);
 						break;
 					case '-':
-						operand_to_list(&head1,&tail1,&head2,&tail2,argv,flag);	
+						flag = operand_to_list(&head1,&tail1,&head2,&tail2,argv,flag);	
 						/* call the function to perform the subtraction operation */
-						subtraction(&head1,&tail1,&head2,&tail2,&headR,&tailR);
+						subtraction(&head1,&tail1,&head2,&tail2,&headR,&tailR,flag);
 						break;
 					case 'x':	
 						/* call the function to perform the multiplication operation */
