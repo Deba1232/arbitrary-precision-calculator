@@ -4,52 +4,12 @@ int operand_to_list(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, 
 
     if(**(argv + 2) == '+'){
         while(*argv[1]){
-            Dlist *digit_node = (Dlist *)calloc(1, sizeof(Dlist));
-
-            if(!digit_node){
-                fprintf(stderr, "Memory couldn't be allocated\n");
-		        exit(EXIT_FAILURE);
-            }
-
-            digit_node->data = *argv[1] - '0';
-            digit_node->prev = NULL;
-            digit_node->next = NULL;
-        
-            if(!*head1 && !*tail1){
-                *head1 = digit_node;
-                *tail1 = digit_node;
-            }
-            else{
-                digit_node->prev = *tail1;
-                (*tail1)->next = digit_node;
-                *tail1 = digit_node;
-            }
-
+            insert_at_last(head1, tail1, *argv[1] - '0');
             argv[1]++;
         }
 
         while(*argv[3]){
-            Dlist *digit_node = (Dlist *)calloc(1, sizeof(Dlist));
-
-            if(!digit_node){
-                fprintf(stderr, "Memory couldn't be allocated\n");
-		        exit(EXIT_FAILURE);
-            }
-        
-            digit_node->data = *argv[3] - '0';
-            digit_node->prev = NULL;
-            digit_node->next = NULL;
-        
-            if(!*head2 && !*tail2){
-                *head2 = digit_node;
-                *tail2 = digit_node;
-            }
-            else{
-                digit_node->prev = *tail2;
-                (*tail2)->next = digit_node;
-                *tail2 = digit_node;
-            }
-
+            insert_at_last(head2, tail2, *argv[3] - '0');
             argv[3]++;
         }
 
@@ -59,52 +19,12 @@ int operand_to_list(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, 
         if(strlen(argv[1]) > strlen(argv[3])){
             
             while(*argv[1]){
-                Dlist *digit_node = (Dlist *)calloc(1, sizeof(Dlist));
-
-                if(!digit_node){
-                    fprintf(stderr, "Memory couldn't be allocated\n");
-                    exit(EXIT_FAILURE);
-                }
-
-                digit_node->data = *argv[1] - '0';
-                digit_node->prev = NULL;
-                digit_node->next = NULL;
-
-                if(!*head1 && !*tail1){
-                    *head1 = digit_node;
-                    *tail1 = digit_node;
-                }
-                else{
-                    digit_node->prev = *tail1;
-                    (*tail1)->next = digit_node;
-                    *tail1 = digit_node;
-                }
-
+                insert_at_last(head1, tail1, *argv[1] - '0');
                 argv[1]++;
             }
 
             while(*argv[3]){
-                Dlist *digit_node = (Dlist *)calloc(1, sizeof(Dlist));
-
-                if(!digit_node){
-                    fprintf(stderr, "Memory couldn't be allocated\n");
-                    exit(EXIT_FAILURE);
-                }
-
-                digit_node->data = *argv[3] - '0';
-                digit_node->prev = NULL;
-                digit_node->next = NULL;
-
-                if(!*head2 && !*tail2){
-                    *head2 = digit_node;
-                    *tail2 = digit_node;
-                }
-                else{
-                    digit_node->prev = *tail2;
-                    (*tail2)->next = digit_node;
-                    *tail2 = digit_node;
-                }
-
+                insert_at_last(head2, tail2, *argv[3] - '0');
                 argv[3]++;
             }
         }
@@ -113,52 +33,12 @@ int operand_to_list(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, 
             flag = 1;
 
             while(*argv[1]){
-                Dlist *digit_node = (Dlist *)calloc(1, sizeof(Dlist));
-
-                if(!digit_node){
-                    fprintf(stderr, "Memory couldn't be allocated\n");
-                    exit(EXIT_FAILURE);
-                }
-
-                digit_node->data = *argv[1] - '0';
-                digit_node->prev = NULL;
-                digit_node->next = NULL;
-
-                if(!*head2 && !*tail2){
-                    *head2 = digit_node;
-                    *tail2 = digit_node;
-                }
-                else{
-                    digit_node->prev = *tail2;
-                    (*tail2)->next = digit_node;
-                    *tail2 = digit_node;
-                }
-
+                insert_at_last(head2, tail2, *argv[1] - '0');
                 argv[1]++;
             }
 
             while(*argv[3]){
-                Dlist *digit_node = (Dlist *)calloc(1, sizeof(Dlist));
-
-                if(!digit_node){
-                    fprintf(stderr, "Memory couldn't be allocated\n");
-                    exit(EXIT_FAILURE);
-                }
-
-                digit_node->data = *argv[3] - '0';
-                digit_node->prev = NULL;
-                digit_node->next = NULL;
-
-                if(!*head1 && !*tail1){
-                    *head1 = digit_node;
-                    *tail1 = digit_node;
-                }
-                else{
-                    digit_node->prev = *tail1;
-                    (*tail1)->next = digit_node;
-                    *tail1 = digit_node;
-                }
-
+                insert_at_last(head1, tail1, *argv[3] - '0');
                 argv[3]++;
             }
         }
@@ -166,52 +46,12 @@ int operand_to_list(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, 
             //if first operand is greater than the second operand
             if(strcmp(argv[1], argv[3]) > 0){
                 while(*argv[1]){
-                    Dlist *digit_node = (Dlist *)calloc(1, sizeof(Dlist));
-
-                    if(!digit_node){
-                        fprintf(stderr, "Memory couldn't be allocated\n");
-                        exit(EXIT_FAILURE);
-                    }
-
-                    digit_node->data = *argv[1] - '0';
-                    digit_node->prev = NULL;
-                    digit_node->next = NULL;
-
-                    if(!*head1 && !*tail1){
-                        *head1 = digit_node;
-                        *tail1 = digit_node;
-                    }
-                    else{
-                        digit_node->prev = *tail1;
-                        (*tail1)->next = digit_node;
-                        *tail1 = digit_node;
-                    }
-
+                    insert_at_last(head1, tail1, *argv[1] - '0');
                     argv[1]++;
                 }
 
                 while(*argv[3]){
-                    Dlist *digit_node = (Dlist *)calloc(1, sizeof(Dlist));
-
-                    if(!digit_node){
-                        fprintf(stderr, "Memory couldn't be allocated\n");
-                        exit(EXIT_FAILURE);
-                    }
-
-                    digit_node->data = *argv[3] - '0';
-                    digit_node->prev = NULL;
-                    digit_node->next = NULL;
-
-                    if(!*head2 && !*tail2){
-                        *head2 = digit_node;
-                        *tail2 = digit_node;
-                    }
-                    else{
-                        digit_node->prev = *tail2;
-                        (*tail2)->next = digit_node;
-                        *tail2 = digit_node;
-                    }
-
+                    insert_at_last(head2, tail2, *argv[3] - '0');
                     argv[3]++;
                 }
             }
@@ -220,52 +60,12 @@ int operand_to_list(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, 
                 flag = 1;
 
                 while(*argv[1]){
-                    Dlist *digit_node = (Dlist *)calloc(1, sizeof(Dlist));
-
-                    if(!digit_node){
-                        fprintf(stderr, "Memory couldn't be allocated\n");
-                        exit(EXIT_FAILURE);
-                    }
-
-                    digit_node->data = *argv[1] - '0';
-                    digit_node->prev = NULL;
-                    digit_node->next = NULL;
-
-                    if(!*head2 && !*tail2){
-                        *head2 = digit_node;
-                        *tail2 = digit_node;
-                    }
-                    else{
-                        digit_node->prev = *tail2;
-                        (*tail2)->next = digit_node;
-                        *tail2 = digit_node;
-                    }
-
+                    insert_at_last(head2, tail2, *argv[1] - '0');
                     argv[1]++;
                 }
 
                 while(*argv[3]){
-                    Dlist *digit_node = (Dlist *)calloc(1, sizeof(Dlist));
-
-                    if(!digit_node){
-                        fprintf(stderr, "Memory couldn't be allocated\n");
-                        exit(EXIT_FAILURE);
-                    }
-
-                    digit_node->data = *argv[3] - '0';
-                    digit_node->prev = NULL;
-                    digit_node->next = NULL;
-
-                    if(!*head1 && !*tail1){
-                        *head1 = digit_node;
-                        *tail1 = digit_node;
-                    }
-                    else{
-                        digit_node->prev = *tail1;
-                        (*tail1)->next = digit_node;
-                        *tail1 = digit_node;
-                    }
-
+                    insert_at_last(head1, tail1, *argv[3] - '0');
                     argv[3]++;
                 }
             }
@@ -274,52 +74,12 @@ int operand_to_list(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, 
                 flag = 2;
 
                 while(*argv[1]){
-                    Dlist *digit_node = (Dlist *)calloc(1, sizeof(Dlist));
-
-                    if(!digit_node){
-                        fprintf(stderr, "Memory couldn't be allocated\n");
-                        exit(EXIT_FAILURE);
-                    }
-
-                    digit_node->data = *argv[1] - '0';
-                    digit_node->prev = NULL;
-                    digit_node->next = NULL;
-
-                    if(!*head1 && !*tail1){
-                        *head1 = digit_node;
-                        *tail1 = digit_node;
-                    }
-                    else{
-                        digit_node->prev = *tail1;
-                        (*tail1)->next = digit_node;
-                        *tail1 = digit_node;
-                    }
-
+                    insert_at_last(head1, tail1, *argv[1] - '0');
                     argv[1]++;
                 }
 
                 while(*argv[3]){
-                    Dlist *digit_node = (Dlist *)calloc(1, sizeof(Dlist));
-
-                    if(!digit_node){
-                        fprintf(stderr, "Memory couldn't be allocated\n");
-                        exit(EXIT_FAILURE);
-                    }
-
-                    digit_node->data = *argv[3] - '0';
-                    digit_node->prev = NULL;
-                    digit_node->next = NULL;
-
-                    if(!*head2 && !*tail2){
-                        *head2 = digit_node;
-                        *tail2 = digit_node;
-                    }
-                    else{
-                        digit_node->prev = *tail2;
-                        (*tail2)->next = digit_node;
-                        *tail2 = digit_node;
-                    }
-
+                    insert_at_last(head2, tail2, *argv[3] - '0');
                     argv[3]++;
                 }
             }

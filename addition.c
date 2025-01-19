@@ -6,12 +6,6 @@ void addition(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, Dlist 
     Dlist *temp2 = *tail2;
 
     while(temp1 || temp2){
-        Dlist *res_node = (Dlist *)calloc(1, sizeof(Dlist));
-
-        if(!res_node){
-            fprintf(stderr, "Memory couldn't be allocated\n");
-		    exit(EXIT_FAILURE);
-        }
 
         if(!temp1){
             num1 = 0;
@@ -29,19 +23,7 @@ void addition(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, Dlist 
         sum = num1 + num2 + carry;
         carry = sum/10;
 
-        res_node->data = sum%10;
-        res_node->prev = NULL;
-        res_node->next = NULL;
-
-        if(!*headR && !*tailR){
-            *headR = res_node;
-            *tailR = res_node;
-        }
-        else{
-            res_node->next = *headR;
-            (*headR)->prev = res_node;
-            *headR = res_node;
-        }
+        insert_at_first(headR, tailR, sum%10);
 
         if(temp1 && temp2){
             temp1 = temp1->prev;
@@ -58,20 +40,7 @@ void addition(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, Dlist 
     }
     //if there's still a carry left after the above operation
     if(carry){
-        Dlist *res_node = (Dlist *)calloc(1, sizeof(Dlist));
-
-        if(!res_node){
-            fprintf(stderr, "Memory couldn't be allocated\n");
-		    exit(EXIT_FAILURE);
-        }
-
-        res_node->data = carry;
-        res_node->prev = NULL;
-        res_node->next = NULL;
-
-        res_node->next = *headR;
-        (*headR)->prev = res_node;
-        *headR = res_node;
+        insert_at_first(headR, tailR, carry);
     }
 
     Dlist *tempR = *headR;

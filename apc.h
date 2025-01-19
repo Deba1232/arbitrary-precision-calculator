@@ -18,6 +18,9 @@ typedef struct node
 
 /* Include the prototypes here */
 
+void insert_at_first(Dlist **head, Dlist **tail, int data);
+void insert_at_last(Dlist **head, Dlist **tail, int data);
+
 /*store the operands into the list */
 int operand_to_list(Dlist **head1,Dlist **tail1,Dlist **head2,Dlist **tail2,char *argv[],int flag);
 
