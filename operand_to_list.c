@@ -2,7 +2,7 @@
 
 int operand_to_list(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, char *argv[], int flag){
 
-    if(**(argv + 2) == '+'){
+    if(**(argv + 2) == '+' || **(argv + 2) == 'x'){
         while(*argv[1]){
             insert_at_last(head1, tail1, *argv[1] - '0');
             argv[1]++;

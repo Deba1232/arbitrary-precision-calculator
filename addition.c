@@ -1,6 +1,6 @@
 #include "apc.h"
 
-void addition(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, Dlist **headR, Dlist **tailR){
+void addition(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, Dlist **headR, Dlist **tailR, int multiply_flag){
     int num1, num2, sum, carry = 0;
     Dlist *temp1 = *tail1;
     Dlist *temp2 = *tail2;
@@ -43,11 +43,13 @@ void addition(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, Dlist 
         insert_at_first(headR, tailR, carry);
     }
 
-    Dlist *tempR = *headR;
+    if(!multiply_flag){
+        Dlist *tempR = *headR;
     
-    while (tempR) {
-        printf("%d", tempR->data);
-        tempR = tempR->next;
+        while (tempR) {
+            printf("%d", tempR->data);
+            tempR = tempR->next;
+        }
+        printf("\n");
     }
-    printf("\n");
 }
