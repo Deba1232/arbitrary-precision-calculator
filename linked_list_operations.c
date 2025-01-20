@@ -45,3 +45,17 @@ void insert_at_last(Dlist **head, Dlist **tail, int data){
         *tail = digit_node;
     }
 }
+
+void delete_list(Dlist **head, Dlist **tail){
+    Dlist *temp = *head;
+    
+    while(*head){
+        temp = *head;
+        *head = (*head)->next;
+        free(temp);
+    }
+
+    free(*head);
+
+    *head = *tail = NULL;
+}
