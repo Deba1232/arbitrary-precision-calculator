@@ -44,8 +44,9 @@ void addition(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, Dlist 
     }
 
     if(!multiply_flag){
+        zeronode(headR, tailR);
+        
         Dlist *tempR = *headR;
-    
         while (tempR) {
             printf("%d", tempR->data);
             tempR = tempR->next;

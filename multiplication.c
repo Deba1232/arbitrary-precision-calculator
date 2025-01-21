@@ -65,8 +65,9 @@ void multiplication(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, 
         temp2 = temp2->prev;
     }
 
+    zeronode(headR, tailR);
+    
     Dlist *tempR = *headR;
-
     while (tempR) {
         printf("%d", tempR->data);
         tempR = tempR->next;
