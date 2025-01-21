@@ -59,3 +59,31 @@ void delete_list(Dlist **head, Dlist **tail){
 
     *head = *tail = NULL;
 }
+
+void zeronode(Dlist **head, Dlist **tail)
+{
+    while((*head)->data == 0)
+    {
+        if((*head)->next == NULL)
+            break;
+        delete_first(head,tail);
+    }
+}
+
+void delete_first(Dlist **head, Dlist **tail)
+{
+    if(*head == NULL)   //if list is empty
+    {
+        return ;
+    }
+    if((*head)->next == NULL) //condition to check whether only single node is present in the list or not
+    {
+        free(*head);
+        *head =*tail=NULL;
+        return;
+    }
+    Dlist *temp = *head;    //if multiple nodes are present
+    *head = temp->next;
+    free(temp);
+    (*head)->prev=NULL;
+}
