@@ -38,21 +38,22 @@ int main(int argc, char* argv[])
 					case '+':
                 		operand_to_list(&head1,&tail1,&head2,&tail2,argv,sign_flag);
 						/* call the function to perform the addition operation */
-                		addition(&head1,&tail1,&head2,&tail2,&headR,&tailR, 0);
+                		addition(&head1,&tail1,&head2,&tail2,&headR,&tailR,0);
 						break;
 					case '-':
 						sign_flag = operand_to_list(&head1,&tail1,&head2,&tail2,argv,sign_flag);	
 						/* call the function to perform the subtraction operation */
-						subtraction(&head1,&tail1,&head2,&tail2,&headR,&tailR,sign_flag);
+						subtraction(&head1,&tail1,&head2,&tail2,&headR,&tailR,sign_flag,0);
 						break;
 					case 'x':
 						operand_to_list(&head1,&tail1,&head2,&tail2,argv,sign_flag);	
 						/* call the function to perform the multiplication operation */
 						multiplication(&head1,&tail1,&head2,&tail2,&headR,&tailR);
 						break;
-					case '/':	
+					case '/':
 						/* call the function to perform the division operation */
-						break;
+						division(&head1,&tail1,&head2,&tail2,&headR,&tailR, argv);
+						break;	
 					default:
 						printf("Invalid Input:-( Try again...\n");
 				}
