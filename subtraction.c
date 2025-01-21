@@ -1,11 +1,11 @@
 #include "apc.h"
 
-void subtraction(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, Dlist **headR, Dlist **tailR, int flag){
+void subtraction(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, Dlist **headR, Dlist **tailR, int sign_flag, int division_flag){
     int num1, num2, value, borrow = 0;
     Dlist *temp1 = *tail1;
     Dlist *temp2 = *tail2;
 
-    if((flag == 0) || (flag == 1)){
+    if((sign_flag == 0) || (sign_flag == 1)){
 
         while(temp1 || temp2){
 
@@ -59,7 +59,7 @@ void subtraction(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, Dli
             free(node_remove);
         }
 
-        if(flag){
+        if(sign_flag){
             insert_at_first(headR, tailR, '-');
         }
     }
@@ -67,17 +67,19 @@ void subtraction(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, Dli
         insert_at_first(headR, tailR, 0);
     }
 
-    Dlist *tempr = *headR;
-    while (tempr) {
-        /* Printing the list */
-        if(tempr->data == 45){
-            printf("%c", tempr->data);
+    if(!division_flag){
+        Dlist *tempr = *headR;
+        while (tempr) {
+            /* Printing the list */
+            if(tempr->data == 45){
+                printf("%c", tempr->data);
+            }
+            else{
+                printf("%d", tempr->data);
+            }
+            /* Traverse in forward direction */
+            tempr = tempr->next;
         }
-        else{
-            printf("%d", tempr->data);
-        }
-        /* Traverse in forward direction */
-        tempr = tempr->next;
+        printf("\n"); 
     }
-    printf("\n"); 
 }
