@@ -87,3 +87,29 @@ void delete_first(Dlist **head, Dlist **tail)
     free(temp);
     (*head)->prev=NULL;
 }
+
+void remove_leading_zeros(char *str)
+{
+    // Check if the string is empty or consists of only zeros
+    int i = 0;
+    // Skip leading zeros
+    while (str[i] == '0' && str[i] != '\0') {
+        i++;
+    }
+    
+    // Shift the characters left to remove the leading zeros
+    if(i > 0)
+    {
+        // If the entire string is zeros, ensure there's at least one zero
+        if (str[i] == '\0')
+        {
+            str[0] = '0';
+            str[1] = '\0';
+        }
+        else
+        {
+            // Shift all the characters left
+            memmove(str, str + i, strlen(str) - i + 1);
+ 		}
+	}
+}

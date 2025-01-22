@@ -41,6 +41,8 @@ int main(int argc, char* argv[])
                 		addition(&head1,&tail1,&head2,&tail2,&headR,&tailR,0);
 						break;
 					case '-':
+						remove_leading_zeros(argv[1]);
+						remove_leading_zeros(argv[3]);
 						sign_flag = operand_to_list(&head1,&tail1,&head2,&tail2,argv,sign_flag);	
 						/* call the function to perform the subtraction operation */
 						subtraction(&head1,&tail1,&head2,&tail2,&headR,&tailR,sign_flag,0);
@@ -51,6 +53,8 @@ int main(int argc, char* argv[])
 						multiplication(&head1,&tail1,&head2,&tail2,&headR,&tailR);
 						break;
 					case '/':
+						remove_leading_zeros(argv[1]);
+						remove_leading_zeros(argv[3]);
 						/* call the function to perform the division operation */
 						division(&head1,&tail1,&head2,&tail2,&headR,&tailR, argv);
 						break;	

@@ -18,6 +18,8 @@ typedef struct node
 
 /* Include the prototypes here */
 
+void remove_leading_zeros(char *str);
+
 void insert_at_first(Dlist **head, Dlist **tail, int data);
 void insert_at_last(Dlist **head, Dlist **tail, int data);
 void delete_list(Dlist **head, Dlist **tail);
